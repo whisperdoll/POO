@@ -16,11 +16,17 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/animate.js"></script>
+		<script>
+			$(window).load(function()
+			{
+				$(".front-content").show();
+			});
+		</script>
 	</head>
 	<body>
 		<div class="site-wrapper">
 			<div class="site-content">
-					<div class="front-content animated fadeInDown">
+					<div class="front-content animated fadeInDown" style="display:none;">
 						<h1>Pok&eacute;mon Online... <i>Online.</i></h1>
 						<p class="lead">The most cash money PO webclient out there.</p>
 						<a class="btn btn-white animated-05 btn-lg">Go to client</a><a class="btn btn-white animated-05 btn-lg">View on Github</a>
