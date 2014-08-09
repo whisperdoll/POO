@@ -48,14 +48,15 @@ html, body
 	text-shadow:none;
 	border:1px solid white;
 	border-radius:6px;
-	color:white;
+	color:white !important;
 	margin:0px 8px;
+	background:transparent;
 }
 
 .btn-white:hover
 {
 	background-color:white;
-	color:#111111;
+	color:#111111 !important;
 }
 
 .animated-05
