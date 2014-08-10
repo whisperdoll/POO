@@ -16,20 +16,46 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/animate.js"></script>
+		<script src="js/jscolor.js"></script>
+		<script src="js/utilities.js"></script>
+		<script src="js/relay.js"></script>
+		<script src="js/script.js"></script>
+		<script>
+		
+			$(function()
+			{
+				$("#page-client").hide();
+				connectToRegistry();
+				
+				$("#btn_connect").click(function(e)
+				{
+					e.preventDefault();
+					connectToServer();
+				});
+			});
+			
+		</script>
 	</head>
 	<body>
 		<div class="client-wrapper">
 			<div class="client-content">
-				<div class="page-server">
-					<div class="serverList"></div>
-					<div class="serverDescription"></div>
-					<div class="serverInfo form-group">
-						<form class="form-inline fixed-36">
-							<input type="text" class="form-control" id="input_name" placeholder="Name">
-							<input type="text" class="form-control" id="input_color" placeholder="Color">
-							<input type="text" class="form-control" id ="input_connection" placeholder="Advanced Connection">
-							<button class="btn btn-primary" id="btn_connect">Connect</button>
-						</form>
+				<div class="page-server" id="page-server">
+					<div class="page-server-content" id ="page-server-content">
+						<div class="serverList" id="serverList"></div>
+						<div class="serverDescription" id="serverDescription"></div>
+						<div class="serverInfo form-group">
+							<form class="form-inline fixed-36">
+								<input type="text" class="form-control" id="input_name" placeholder="Name">
+								<input type="text" class="form-control color {hash:true}" id="input_color" placeholder="Color">
+								<input type="text" class="form-control" id ="input_connection" placeholder="Advanced Connection">
+								<button class="btn btn-primary" id="btn_connect">Connect</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="page-client" id="page-client">
+					<div class="page-client-content" id="page-client-content">
+						hi :)
 					</div>
 				</div>
 			</div>

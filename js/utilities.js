@@ -3,7 +3,7 @@ function open(url, newTab)
 	if (newTab === undefined)
 		newTab = false;
 		
-	var win = window.open(url, (newTab ? "_blank", undefined));
+	var win = window.open(url, (newTab ? "_blank" : undefined));
 	win.focus();
 }
 
@@ -325,6 +325,19 @@ function timestamp()
 function scrollToBottom(e)
 {
 	e.scrollTop = e.scrollHeight;
+}
+
+function malert(title, text)
+{
+	var modal = document.createElement("div");
+	modal.className = "modal fade";
+	modal.tabindex = "-1";
+	modal.role = "dialog";
+	modal["aria-hidden"] = true;
+	
+	modal.innerHTML = "<div class='modal-dialog'><div class='modal-content'><div class='modal-header'><h4 class='modal-title'>" + escapeHTMLQuotes(title) + "</h4></div><div class='modal-body'>" + escapeHTMLQuotes(text) + "</div><div class='modal-footer'><button type='button' class='btn btn-primary' data-dismiss='modal'>OK</button></div></div></div>";
+	
+	$(modal).modal();
 }
 
 function utf8_encode(argString) {
