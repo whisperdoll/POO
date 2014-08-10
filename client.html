@@ -21,7 +21,6 @@
 		<script src="js/relay.js"></script>
 		<script src="js/script.js"></script>
 		<script>
-		
 			$(function()
 			{
 				$("#page-client").hide();
@@ -32,8 +31,9 @@
 					e.preventDefault();
 					connectToServer();
 				});
+				
+				$(".page-server").css("background-image", "url(css/images/bg" + randomInt(2, 11) + ".gif)");
 			});
-			
 		</script>
 	</head>
 	<body>

@@ -89,10 +89,22 @@ Array.prototype.randomItem = function()
 	if (this.length === 0)
 		return undefined;
 		
-	var r = Utilities.randomInt(this.length);
+	var r = randomInt(this.length);
 	
 	return this[r];
 };
+
+function randomInt(arg1, arg2)
+{
+	if (arg2 !== undefined) // randomInt(min, max)
+	{
+		return Math.floor(Math.random() * (arg2 - arg1)) + arg1;
+	}
+	else // randomInt(max)
+	{
+		return Math.floor(Math.random() * arg1);
+	}
+}
 
 Array.prototype.clean = function(deleteValue)
 {
