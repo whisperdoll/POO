@@ -16,76 +16,79 @@ var messageHandlers =
 		var serverList = $("#serverList");
 		var allServers = {};
 		
-		serverList.get(0).innerHTML = "";
-		
-		for (var i = 0; i < servers.length; i++)
+		$($("#serverList").find("*")).fadeOut(300, function()
 		{
-			var server = servers[i];
+			serverList.get(0).innerHTML = "";
 			
-			// description, ip, name, locked, num, port
-			
-			allServers[server.name] = server;
-		}
-		
-		var listed = [];
-		
-		for (var server in allServers)
-		{
-			if (allServers.hasOwnProperty(server))
+			for (var i = 0; i < servers.length; i++)
 			{
-				if (listed.length === 0)
+				var server = servers[i];
+				
+				// description, ip, name, locked, num, port
+				
+				allServers[server.name] = server;
+			}
+			
+			var listed = [];
+			
+			for (var server in allServers)
+			{
+				if (allServers.hasOwnProperty(server))
 				{
-					listed.push(allServers[server]);
-				}
-				else
-				{
-					var pushed = false;
-					
-					for (var i = 0; i < listed.length; i++)
-					{
-						if (listed[i].num < allServers[server].num)
-						{
-							listed.insert(i, allServers[server]);
-							pushed = true;
-							break;
-						}
-					}
-					
-					if (!pushed)
+					if (listed.length === 0)
 					{
 						listed.push(allServers[server]);
 					}
+					else
+					{
+						var pushed = false;
+						
+						for (var i = 0; i < listed.length; i++)
+						{
+							if (listed[i].num < allServers[server].num)
+							{
+								listed.insert(i, allServers[server]);
+								pushed = true;
+								break;
+							}
+						}
+						
+						if (!pushed)
+						{
+							listed.push(allServers[server]);
+						}
+					}
 				}
 			}
-		}
-		
-		for (var i = 0; i < listed.length; i++)
-		{
-			var server = listed[i];
-			var div = document.createElement("div");
-			div.className = "serverItem animated fadeIn";
-			div.id = "serverItem" + i;
-			div.innerHTML = escapeHTML(server.name) + "<span style='float:right; color:inherit;'>" + server.num + (server.hasOwnProperty("max") ? "/" + server.max : "") + " user(s) online</span>";
-			div.server = server;
 			
-			$(div).click(function()
+			for (var i = 0; i < listed.length; i++)
 			{
-				var m_server = this.server;
-				$("#serverDescription").get(0).innerHTML = m_server.description;
-				$("#input_connection").get(0).value = m_server.name + " - " + m_server.ip + ":" + m_server.port;
+				var server = listed[i];
+				var div = document.createElement("div");
+				div.className = "serverItem animated fadeIn";
+				div.id = "serverItem" + i;
+				div.innerHTML = escapeHTML(server.name) + "<span style='float:right; color:inherit;'>" + server.num + (server.hasOwnProperty("max") ? "/" + server.max : "") + " user(s) online</span>";
+				div.server = server;
 				
-				if (cache.serverItemFocused)
+				$(div).click(function()
 				{
-					$(cache.serverItemFocused).removeClass("serverItem-focused");
-				}
-				
-				$(this).addClass("serverItem-focused");
-				
-				cache.serverItemFocused = this;
-			});
-				
-			serverList.append(div);
-		}
+					var m_server = this.server;
+					$("#serverDescription").get(0).innerHTML = m_server.description;
+					$("#input_connection").get(0).value = m_server.name + " - " + m_server.ip + ":" + m_server.port;
+					
+					if (cache.serverItemFocused)
+					{
+						$(cache.serverItemFocused).removeClass("serverItem-focused");
+					}
+					
+					$(this).addClass("serverItem-focused");
+					
+					cache.serverItemFocused = this;
+				});
+					
+				serverList.append(div);
+			}
+		});
 	},
 	"connected": function(data)
 	{

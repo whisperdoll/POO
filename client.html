@@ -23,6 +23,12 @@
 		<script>
 			$(function()
 			{
+				$('.nav-tabs a').click(function (e)
+				{
+					e.preventDefault()
+					$(this).tab('show')
+				});
+				
 				$("#page-client").hide();
 				connectToRegistry();
 				
@@ -41,21 +47,30 @@
 			<div class="client-content">
 				<div class="page-server" id="page-server">
 					<div class="page-server-content" id ="page-server-content">
-						<div class="serverList" id="serverList"></div>
-						<div class="serverDescription" id="serverDescription"></div>
-						<div class="serverInfo form-group">
-							<form class="form-inline fixed-36">
-								<input type="text" class="form-control" id="input_name" placeholder="Name">
-								<input type="text" class="form-control color {hash:true}" id="input_color" placeholder="Color">
-								<input type="text" class="form-control" id ="input_connection" placeholder="Advanced Connection">
-								<button class="btn btn-primary" id="btn_connect">Connect</button>
-							</form>
+						<div class="fullwidth fullheight animated zoomIn">
+							<div class="serverList" id="serverList"><i style="display:block; padding:8px 12px;">Loading servers...</i></div>
+							<div class="serverDescription" id="serverDescription"></div>
+							<div class="serverInfo form-group">
+								<form class="form-inline fixed-36">
+									<input type="text" class="form-control" id="input_name" placeholder="Name...">
+									<input type="text" class="form-control color {hash:true}" id="input_color" placeholder="Color...">
+									<input type="text" class="form-control" id ="input_connection" placeholder="Advanced Connection...">
+									<button class="btn btn-primary" id="btn_connect">Connect</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="page-client" id="page-client">
 					<div class="page-client-content" id="page-client-content">
-						hi :)
+						<div id="sidePane" class="panel panel-info">
+							<div class="panel-heading">Channels</div>
+							<div class="panel-body">channels go here :)</div>
+						</div>
+						<div id="mainPane" class="panel panel-default">
+							<div class="panel-heading">Channel Name<span class="badge" style="float:right">5</span></div>
+							<div class="panel-body">so should this be tabs or like have a dropdown thing on the right and the number is like the number of channel notifications or maybe jus tabs intead of that i dont know :( is this a good layout chat will be here except there will be a player list to the left</div>
+						</div>
 					</div>
 				</div>
 			</div>
