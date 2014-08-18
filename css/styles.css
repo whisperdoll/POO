@@ -245,6 +245,11 @@ input[type="text"]
 	margin:0;
 }
 
+#channel-name
+{
+	font-weight:bold;
+}
+
 .chat-server
 {
 	color:gold;
@@ -320,19 +325,19 @@ input[type="text"]
 	display:block;
 }
 
-.channel-selector-notify
+.channel-selector-notify .h4
 {
-	color:#5555FF;
+	color:#55BB55;
 }
 
 .channel-selector-remove:hover
 {
-	color:#FF3333;
+	color:#FF8888;
 }
 
-.channel-selector:hover
+.channel-selector:hover, .channel-selector-notify:hover .h4
 {
-	background-color:#5555FF;
+	background-color:#8888FF;
 	color:white;
 }
 

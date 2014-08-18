@@ -325,7 +325,7 @@ function connectToServer()
 function handleMessage(msg)
 {
 	var received = msg.data.toString();
-	console.log("received: " + received);
+	//console.log("received: " + received);
 	var command = received.split("|")[0];
 	var data = (received.contains("|") ? received.substr(received.indexOf("|") + 1) : undefined);
 	
@@ -555,9 +555,8 @@ function removeChannel(id)
 	
 	if (switchAfter)
 	{
-		var switchTo = $("#mainPane .channel-chat").get(0);
-		$(switchTo).addClass(".active-channel");
-		$(switchTo).show();
+		var switchTo = $("#mainPane .channel-chat").get(0).channelId;
+		switchToChannel(switchTo);
 	}
 	
 	updateNotify();
