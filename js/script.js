@@ -369,9 +369,14 @@ function print(text, channel)
 		if (channel != currentChannel && !$("#channel-selector-" + channel).hasClass("channel-selector-notify"))
 		{
 			$("#channel-selector-" + channel).addClass("channel-selector-notify");
-			$("#channel-notify").get(0).innerHTML = parseInt($("#channel-notify").get(0).innerHTML) + 1;
+			updateNotify();
 		}
 	}
+}
+
+function updateNotify()
+{
+	$("#channel-notify").get(0).innerHTML = $(".channel-selector-notify").length;
 }
 
 function addChannelPlayer(channel, player)
@@ -528,6 +533,7 @@ function deleteChannel(id)
 	}
 	
 	$("#channel-list-item-" + id).get(0).delete();
+	updateNotify();
 }
 
 function leaveChannel(id)
@@ -553,6 +559,8 @@ function removeChannel(id)
 		$(switchTo).addClass(".active-channel");
 		$(switchTo).show();
 	}
+	
+	updateNotify();
 }
 
 function ChannelItem(name, id)
@@ -621,8 +629,6 @@ function switchToChannel(id)
 		if ($("#channel-selector-" + id).hasClass("channel-selector-notify"))
 		{
 			$("#channel-selector-" + id).removeClass("channel-selector-notify");
-			$("#channel-notify").get(0).innerHTML = parseInt($("#channel-notify").get(0).innerHTML) - 1;
-			
 		}
 		
 		currentChannel = id;
@@ -631,6 +637,8 @@ function switchToChannel(id)
 	{
 		joinChannel(channelName(id));
 	}
+	
+	updateNotify();
 }
 
 function joinChannel(name)
