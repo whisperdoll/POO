@@ -219,7 +219,6 @@ input[type="text"]
 	width:100%;
 	height:100%;
 	background-color:#333333;
-	background-image:url("images/bgtexture.png");
 }
 
 #sidePane
@@ -235,7 +234,7 @@ input[type="text"]
 #mainPane
 {
 	position:absolute;
-	right:288px;
+	right:280px;
 	left:16px;
 	top:16px;
 	bottom:16px;
@@ -243,6 +242,185 @@ input[type="text"]
 	margin:0;
 }
 
+.chat-server
+{
+	color:gold;
+}
+
+.chat-script
+{
+	color:#318739;
+}
+
+.chat-welcome
+{
+	color:blue;
+}
+
+.chat-action
+{
+	color:#FF00FF;
+}
+
+.chat-border
+{
+	color:#318739;
+}
+
+#channel-list
+{
+	list-style:none;
+	overflow:auto;
+	position:absolute;
+	top:40px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	box-sizing:border-box;
+	padding:0px;
+	margin:0px;
+}
+
+.channel-list-item
+{
+	padding:4px 8px;
+	border-bottom:1px solid #EEEEEE;
+	cursor:pointer;
+}
+
+.channel-list-item:hover
+{
+	background:#DDDDFF;
+}
+
+#channel-notify
+{
+	float:right;
+	padding:4px 12px;
+	cursor:pointer;
+}
+
+#channel-notify::after
+{
+	content:" new";
+}
+
+.channel-selector
+{
+	box-sizing:border-box;
+	width:100%;
+	border-bottom:1px solid #aaaaaa;
+	padding:8px 8px;
+	background-color:white;
+	cursor:pointer;
+	display:block;
+}
+
+.channel-selector-notify
+{
+	color:#5555FF;
+}
+
+.channel-selector-remove:hover
+{
+	color:#FF3333;
+}
+
+.channel-selector:hover
+{
+	background-color:#5555FF;
+	color:white;
+}
+
+.channel-selector-container
+{
+	overflow:auto;
+	max-height:256px;
+	width:256px;
+	padding:0;
+	list-style:none;
+	position:absolute;
+	border:1px solid #555555;
+	border-radius:6px;
+	right:264px;
+	top:52px;
+}
+
+.channel-chat
+{
+	padding:0;
+	position:absolute;
+	top:40px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+
+.channel-chat-chat
+{
+	position:absolute;
+	top:8px;
+	right:8px;
+	bottom:48px;
+	left:272px;
+	border:1px solid #aaaaaa;
+	border-radius:4px;
+	overflow:auto;
+	box-sizing:border-box;
+	padding:4px;
+	word-wrap:break-word;
+}
+
+.channel-chat-chat > span:last-of-type
+{
+	padding-bottom:8px;
+}
+
+.channel-chat-input
+{
+	position:absolute;
+	left:272px;
+	bottom:8px;
+	height:32px;
+	width:calc(100% - 352px);
+	box-sizing:border-box;
+}
+
+.channel-chat-send
+{
+	position:absolute;
+	right:8px;
+	bottom:8px;
+	width:64px;
+	height:32px;
+	box-sizing:border-box;
+}
+
+.channel-chat-players
+{
+	position:absolute;
+	left:0px;
+	width:264px;
+	bottom:0px;
+	top:0px;
+	border-right:1px solid #aaaaaa;
+	overflow:auto;
+	list-style:none;
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+	padding-top:8px;
+}
+
+.channel-chat-players .channel-player-item
+{
+	padding:0px 8px;
+}
+
+.channel-chat-players .channel-player-item:last-child
+{
+	padding-bottom:8px;
+}
 
 .fullheight
 {
@@ -252,6 +430,11 @@ input[type="text"]
 .fullwidth
 {
 	width:100%;
+}
+
+.right-aligned
+{
+	float:right;
 }
 
 .fixed-36 > *

@@ -138,6 +138,45 @@ Array.prototype.clean = function(deleteValue)
 	}
 };
 
+function alphaCompare(a, b)
+{
+	return a.toLowerCase().localeCompare(b.toLowerCase());
+}
+
+Array.prototype.alphabetize = function()
+{
+	return this.sort(alphaCompare);
+};
+
+function sortedIndex(array, value, compare) // from https://github.com/6wunderkinder/sortedindex-compare/blob/master/index.js
+{
+	var low = 0,
+		high = array ? array.length : low;
+		
+	while (low < high)
+	{
+		var mid = (low + high) >>> 1;
+		(compare(array[mid],value) > 0) ? low = mid + 1 : high = mid;
+	}
+	
+	return low;
+}
+
+function valuesOf(obj)
+{
+	var ret = [];
+	
+	for (var x in obj)
+	{
+		if (obj.hasOwnProperty(x))
+		{
+			ret.push(obj[x]);
+		}
+	}
+	
+	return ret;
+}
+
 Array.prototype.reverse = function()
 {
 	var ret = [];
@@ -259,6 +298,11 @@ Array.prototype.contains = function(item)
 Array.prototype.insert = function(index, item)
 {
 	this.splice(index, 0, item);
+};
+
+Array.prototype.remove = function(item)
+{
+	return this.splice(this.indexOf(item), 1);
 };
 
 function get(id)

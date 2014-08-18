@@ -17,19 +17,21 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/animate.js"></script>
 		<script src="js/jscolor.js"></script>
+		<script src="js/underscore-min.js"></script>
 		<script src="js/utilities.js"></script>
 		<script src="js/relay.js"></script>
 		<script src="js/script.js"></script>
 		<script>
 			$(function()
 			{
+				$(".page-server").css("background-image", "url(css/images/bg" + randomInt(2, 17) + ".gif)");
+				
 				$('.nav-tabs a').click(function (e)
 				{
 					e.preventDefault()
 					$(this).tab('show')
 				});
 				
-				$("#page-client").hide();
 				connectToRegistry();
 				
 				$("#btn_connect").click(function(e)
@@ -38,7 +40,10 @@
 					connectToServer();
 				});
 				
-				$(".page-server").css("background-image", "url(css/images/bg" + randomInt(2, 17) + ".gif)");
+				$("#channel-notify").click(function()
+				{
+					$("#channel-selector-container").toggle();
+				});
 			});
 		</script>
 	</head>
@@ -61,16 +66,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="page-client" id="page-client">
+				<div class="page-client" id="page-client" style="display:none;">
 					<div class="page-client-content" id="page-client-content">
 						<div id="sidePane" class="panel panel-info">
 							<div class="panel-heading">Channels</div>
-							<div class="panel-body">channels go here :)</div>
+							<ul class="panel-body" id="channel-list"></ul>
 						</div>
 						<div id="mainPane" class="panel panel-default">
-							<div class="panel-heading">Channel Name<span class="badge" style="float:right">5</span></div>
-							<div class="panel-body">so should this be tabs or like have a dropdown thing on the right and the number is like the number of channel notifications or maybe jus tabs intead of that i dont know :( is this a good layout chat will be here except there will be a player list to the left</div>
+							<div class="panel-heading"><span id="channel-name">Channel Name</span>	<div class="badge" id="channel-notify">0</div></div>
 						</div>
+						<ul class="channel-selector-container" id="channel-selector-container" style="display:none;"></ul>
 					</div>
 				</div>
 			</div>
