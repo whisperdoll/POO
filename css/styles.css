@@ -157,7 +157,7 @@ input[type="text"]
 	border-bottom-right-radius:0px;
 	border-bottom:0px solid transparent;
 	padding:0px;
-	overflow:auto;
+	overflow:scroll;
 	-webkit-overflow-scrolling:touch;
 }
 
