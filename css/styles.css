@@ -158,8 +158,6 @@ input[type="text"]
 	border-bottom:0px solid transparent;
 	padding:0px;
 	overflow:auto;
-	-webkit-overflow-scrolling:touch;
-	z-index:0;
 }
 
 .serverDescription
@@ -176,7 +174,6 @@ input[type="text"]
 	color:black;
 	padding:12px;
 	overflow:auto;
-	-webkit-overflow-scrolling:touch;
 }
 
 .serverInfo
