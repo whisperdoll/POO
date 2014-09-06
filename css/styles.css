@@ -224,25 +224,31 @@ input[type="text"]
 	background-color:#333333;
 }
 
-#sidePane
+#rightPane
 {
 	position:absolute;
-	top:16px;
-	right:16px;
-	bottom:16px;
+	top:0;
+	right:0;
+	bottom:0;
 	width:256px;
 	margin:0;
+	overflow:auto;
+	-webkit-overflow-scrolling:touch;
+	background:white;
+	border-radius:0px;
+	border-left-width:0px;
 }
 
 #mainPane
 {
 	position:absolute;
-	right:280px;
-	left:16px;
-	top:16px;
-	bottom:16px;
+	right:0;
+	left:0;
+	top:0;
+	bottom:0;
 	color:black;
 	margin:0;
+	border-radius:0px;
 }
 
 #channel-name
@@ -275,16 +281,18 @@ input[type="text"]
 	color:#318739;
 }
 
+#rightPaneHeading
+{
+	border-radius:0px;
+}
+
+#channelListContainer
+{
+}
+
 #channel-list
 {
 	list-style:none;
-	overflow:auto;
-	-webkit-overflow-scrolling:touch;
-	position:absolute;
-	top:40px;
-	left:0px;
-	right:0px;
-	bottom:0px;
 	box-sizing:border-box;
 	padding:0px;
 	margin:0px;
@@ -295,11 +303,12 @@ input[type="text"]
 	padding:4px 8px;
 	border-bottom:1px solid #EEEEEE;
 	cursor:pointer;
+	background:#FEFEFF;
 }
 
 .channel-list-item:hover
 {
-	background:#DDDDFF;
+	background:#EEEEFF;
 }
 
 #channel-notify
@@ -311,7 +320,7 @@ input[type="text"]
 
 #channel-notify::after
 {
-	content:" new";
+	content:" new »";
 }
 
 .channel-selector
@@ -319,10 +328,12 @@ input[type="text"]
 	box-sizing:border-box;
 	width:100%;
 	border-bottom:1px solid #aaaaaa;
-	padding:8px 8px;
+	padding:4px 6px;
 	background-color:white;
 	cursor:pointer;
 	display:block;
+	height:40px;
+	line-height:32px;
 }
 
 .channel-selector-notify .h4
@@ -337,23 +348,18 @@ input[type="text"]
 
 .channel-selector:hover, .channel-selector-notify:hover .h4
 {
-	background-color:#8888FF;
+	background-color:#AAAAFF;
 	color:white;
 }
 
 .channel-selector-container
 {
-	overflow:auto;
-	-webkit-overflow-scrolling:touch;
-	max-height:256px;
-	width:256px;
+	width:100%;
+	box-sizing:border-box;
 	padding:0;
+	margin:0;
 	list-style:none;
-	position:absolute;
-	border:1px solid #555555;
-	border-radius:6px;
-	right:264px;
-	top:52px;
+	border-bottom:2px solid #aaaaaa;
 }
 
 .channel-chat
@@ -372,7 +378,7 @@ input[type="text"]
 	top:8px;
 	right:8px;
 	bottom:48px;
-	left:200px;
+	left:208px;
 	border:1px solid #aaaaaa;
 	border-radius:4px;
 	overflow:auto;
@@ -390,13 +396,13 @@ input[type="text"]
 .channel-chat-input
 {
 	position:absolute;
-	left:200px;
+	left:208px;
 	bottom:8px;
 	height:32px;
-	width:-moz-calc(100% - 280px);
-    width:-webkit-calc(100% - 280px);
-    width:-o-calc(100% - 280px);
-    width:calc(100% - 280px);
+	width:-moz-calc(100% - 288px);
+	width:-webkit-calc(100% - 288px);
+	width:-o-calc(100% - 288px);
+	width:calc(100% - 288px);
 	box-sizing:border-box;
 }
 
@@ -414,7 +420,7 @@ input[type="text"]
 {
 	position:absolute;
 	left:0px;
-	width:192px;
+	width:200px;
 	bottom:0px;
 	top:0px;
 	border-right:1px solid #aaaaaa;

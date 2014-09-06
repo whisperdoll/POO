@@ -42,7 +42,7 @@
 				
 				$("#channel-notify").click(function()
 				{
-					$("#channel-selector-container").toggle();
+					toggleRightPane();
 				});
 			});
 		</script>
@@ -68,14 +68,17 @@
 				</div>
 				<div class="page-client" id="page-client" style="display:none;">
 					<div class="page-client-content" id="page-client-content">
-						<div id="sidePane" class="panel panel-info">
-							<div class="panel-heading">Channels</div>
-							<ul class="panel-body" id="channel-list"></ul>
+						<div id="rightPane" class="panel panel-info" style="display:none;">
+							<div class="panel-heading" id="rightPaneHeading">Channels</div>
+							<ul class="channel-selector-container" id="channel-selector-container"></ul>
+							<div id="channelListContainer">
+								<ul class="panel-body" id="channel-list"></ul>
+							</div>
 						</div>
 						<div id="mainPane" class="panel panel-default">
-							<div class="panel-heading"><span id="channel-name">Channel Name</span>	<div class="badge" id="channel-notify">0</div></div>
+							<div class="panel-heading" style="border-radius:0px;"><span id="channel-name">Channel Name</span>	<div class="badge" id="channel-notify">0</div></div>
 						</div>
-						<ul class="channel-selector-container" id="channel-selector-container" style="display:none;"></ul>
+						
 					</div>
 				</div>
 			</div>

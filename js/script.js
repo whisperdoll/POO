@@ -379,6 +379,24 @@ function updateNotify()
 	$("#channel-notify").get(0).innerHTML = $(".channel-selector-notify").length;
 }
 
+function toggleRightPane()
+{
+	var r = $("#rightPane");
+	var m = $("#mainPane");
+	
+	if (r.is(":visible"))
+	{
+		r.hide();
+		m.get(0).style.right = "0px";
+	}
+	else
+	{
+		m.get(0).style.right = "256px";
+		r.get(0).style.width = "256px";
+		r.show();
+	}
+}
+
 function addChannelPlayer(channel, player)
 {
 	// player is id
@@ -647,8 +665,10 @@ function joinChannel(name)
 
 function makeJoinedChannel(id)
 {
-	$("#channel-selector-container").append(new ChannelSelectorItem(id));
+	var i = new ChannelSelectorItem(id);
+	$("#channel-selector-container").append(i);
 	$("#mainPane").append(new ChannelChatItem(id));
+	$("#rightPane").scrollTop($("#rightPane").scrollTop() + 40);
 	
 	switchToChannel(id);
 }
