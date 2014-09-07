@@ -383,6 +383,19 @@ function scrollToBottom(e)
 	e.scrollTop = e.scrollHeight;
 }
 
+function isScrolledToBottom(e, allowance)
+{
+	var x = $(e);
+	var y = x.get(0);
+	
+	if (allowance === undefined)
+		allowance = 1;
+		
+	//console.log(y.scrollHeight + " - " + x.scrollTop() + " - " + allowance + " = " + (y.scrollHeight - x.scrollTop() - allowance) + " | " + x.innerHeight());
+	
+	return y.scrollHeight - x.scrollTop() - allowance <= x.innerHeight();
+}
+
 function malert(title, text)
 {
 	var modal = document.createElement("div");

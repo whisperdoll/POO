@@ -362,9 +362,18 @@ function print(text, channel)
 	else
 	{
 		var c = $("#channel-chat-chat-" + channel).get(0);
-		c.innerHTML += "<span class='printed-message'>" + text + "</span><br />";
+		c.innerHTML += "<span class='printed-message'>" + text + "<br /></span>";
 		
-		scrollToBottom(c);
+		var len = $("#channel-chat-chat-" + channel + " > .printed-message").length;
+		var max = 200;
+		
+		if (len > max)
+		{
+			$(c).find('.printed-message').first().remove(); // so not 8938923892892839283892 spans
+		}
+		
+		if (cache.scroll === true)
+			scrollToBottom(c);
 		
 		if (channel != currentChannel && !$("#channel-selector-" + channel).hasClass("channel-selector-notify"))
 		{
@@ -688,7 +697,7 @@ function ChannelSelectorItem(id)
 	nameItem.innerHTML = escapeHTML(name);
 	
 	var closeItem = document.createElement("span");
-	closeItem.className = "glyphicon glyphicon-remove right-aligned channel-selector-remove";
+	closeItem.className = "glyphicon glyphicon-remove-sign right-aligned channel-selector-remove";
 	closeItem.channelId = id;
 	
 	$(ret).append(nameItem);
