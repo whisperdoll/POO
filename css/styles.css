@@ -520,9 +520,10 @@ input[type="text"]
 
 .pmContainer
 {
+	float:left;
 	position:relative;
 	height:296px;
-	margin:0px;
+	margin:0px 2px;
 	padding:0px;
 	box-sizing:border-box;
 	border:1px solid black;
