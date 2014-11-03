@@ -234,7 +234,6 @@ input[type="text"]
 	background-size:cover;
 }
 
-
 #rightPane
 {
 	position:absolute;
@@ -256,7 +255,7 @@ input[type="text"]
 	right:0;
 	left:0;
 	top:0;
-	bottom:0;
+	bottom:32px;
 	color:black;
 	margin:0;
 	border-radius:0px;
@@ -501,6 +500,123 @@ input[type="text"]
 .channel-chat-players .channel-player-item:first-child
 {
 	padding-top:4px;
+}
+
+.pmSystemContainer
+{
+	position:absolute;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background:transparent;
+	height:296px;
+	padding:0px;
+	margin:0px;
+	width:100%;
+	box-sizing:border-box;
+	pointer-events:none;
+	overflow-y:hidden;
+}
+
+.pmContainer
+{
+	position:relative;
+	height:296px;
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+	border:1px solid black;
+	border-bottom-width:0px;
+	width:296px;
+	pointer-events:auto;
+	transition: top 0.5s;
+	-webkit-transition: top 0.5s;
+}
+
+.pmHeader
+{
+	background:black;
+	height:32px;
+	color:white;
+	line-height:32px;
+	font-size:16px;
+	padding:0px 16px 0px 12px;
+	box-sizing:border-box;
+}
+
+.pmChat
+{
+	position:absolute;
+	top:32px;
+	left:0px;
+	width:100%;
+	bottom:32px;
+	box-sizing:border-box;
+	overflow:auto;
+	background:white;
+	padding:4px;
+	border-bottom:1px solid #aaaaaa;
+}
+
+.pmHide
+{
+	position:absolute;
+	top:4px;
+	right:32px;
+	color:white;
+	cursor:pointer;
+	font-size:16px;
+}
+
+.pmClose
+{
+	position:absolute;
+	top:4px;
+	right:8px;
+	color:white;
+	cursor:pointer;
+	font-size:16px;
+}
+
+.pmInput
+{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	height:32px;
+	border:0px solid #aaaaaa;
+	width:-moz-calc(100% - 64px);
+	width:-webkit-calc(100% - 64px);
+	width:-o-calc(100% - 64px);
+	width:calc(100% - 64px);
+	font-size:16px;
+	padding:0px 8px;
+}
+
+.pmSend
+{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	width:64px;
+	color:white;
+	background:#6699FF;
+	cursor:pointer;
+	height:32px;
+	text-align:center;
+	font-size:16px;
+	line-height:32px;
+	border:0px;
+}
+
+.pmSend:hover
+{
+	background:#77AAFF;
+}
+
+.pmSend:active
+{
+	background:#5588FF;
 }
 
 .fullheight

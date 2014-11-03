@@ -20,8 +20,11 @@
 		<script src="js/underscore-min.js"></script>
 		<script src="js/utilities.js"></script>
 		<script src="js/relay.js"></script>
+		<script src="js/pmSystem.js"></script>
 		<script src="js/script.js"></script>
 		<script>
+			var pms;
+			
 			$(function()
 			{
 				cache.scroll = getVal("cache-scroll", true);
@@ -53,6 +56,9 @@
 					cache.scroll = !cache.scroll;
 					$("#scrollToggle").get(0).style.color = (cache.scroll ? "#7777DD" : "black");
 				});
+				
+				pms = new pmSystem();
+				$("#page-client").append(pms.container);
 			});
 		</script>
 	</head>

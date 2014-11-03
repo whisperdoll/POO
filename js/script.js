@@ -303,6 +303,21 @@ var messageHandlers =
 				addChannelPlayer(myChannels[i], myInfo.id);
 			}
 		}
+	},
+	"pm": function(data)
+	{
+		data = JSON.parse(data);
+		var message = data.message;
+		var src = data.src;
+		
+		var name = playerName(src);
+		
+		if (!pms.pms.hasOwnProperty(src))
+		{
+			pms.add(src);
+		}
+		
+		pms.pms[src].print(message);
 	}
 };
 
@@ -352,6 +367,11 @@ function handleError(data)
 
 function print(text, channel)
 {
+	if (channel === undefined)
+	{
+		channel = -1;
+	}
+	
 	if (channel == -1)
 	{
 		for (var i = 0; i < myChannels.length; i++)

@@ -27,6 +27,10 @@ var parsers =
 	"leave": function(data)
 	{
 		return "leave|" + data.toString();
+	},
+	"pm": function(data)
+	{
+		return "pm|" + JSON.stringify(data);
 	}
 };
 

@@ -396,6 +396,14 @@ function isScrolledToBottom(e, allowance)
 	return y.scrollHeight - x.scrollTop() - allowance <= x.innerHeight();
 }
 
+function classElement(type, className)
+{
+	var ret = document.createElement(type);
+	ret.className = className;
+	
+	return ret;
+}
+
 function malert(title, text)
 {
 	var modal = document.createElement("div");
