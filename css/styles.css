@@ -506,29 +506,28 @@ input[type="text"]
 {
 	position:absolute;
 	left:0px;
-	right:0px;
 	bottom:0px;
+	top:0px;
 	background:transparent;
-	height:296px;
 	padding:0px;
 	margin:0px;
-	width:100%;
+	width:290px;
 	box-sizing:border-box;
 	pointer-events:none;
-	overflow-y:hidden;
+	overflow:auto;
+	box-sizing:border-box;
 }
 
 .pmContainer
 {
-	float:left;
 	position:relative;
 	height:296px;
-	margin:0px 2px;
+	margin:2px 2px;
 	padding:0px;
 	box-sizing:border-box;
 	border:1px solid black;
-	border-bottom-width:0px;
-	width:296px;
+	border-radius:4px;
+	width:256px;
 	pointer-events:auto;
 	transition: top 0.5s;
 	-webkit-transition: top 0.5s;
@@ -557,12 +556,13 @@ input[type="text"]
 	background:white;
 	padding:4px;
 	border-bottom:1px solid #aaaaaa;
+	font-size:14px;
 }
 
 .pmHide
 {
 	position:absolute;
-	top:4px;
+	top:8px;
 	right:32px;
 	color:white;
 	cursor:pointer;
@@ -572,7 +572,7 @@ input[type="text"]
 .pmClose
 {
 	position:absolute;
-	top:4px;
+	top:8px;
 	right:8px;
 	color:white;
 	cursor:pointer;
